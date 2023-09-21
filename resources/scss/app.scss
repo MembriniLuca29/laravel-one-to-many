@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/bootstrap";
+
+main {
+    background-color: lightblue;
+}
+
+
+form{
+    div{
+        display: flex;
+        align-items: center;
+        label{
+            width: 100px;
+        }
+        input{
+            width: 50%;
+        }
+        textarea{
+            width: 600px;
+            height: 200px;
+        }
+    }
+}
