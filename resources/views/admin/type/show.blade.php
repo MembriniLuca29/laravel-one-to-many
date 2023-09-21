@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', $post->title)
+@section('page-title', $type->title)
 
 @section('main-content')
     <div class="row">
@@ -18,25 +18,25 @@
                 <tbody>
                         <tr>
                             <th scope="row">
-                                {{ $post->id }}
+                                {{ $type->id }}
                             </th>
                             <td>
-                                {{ $post->title }}
+                                {{ $type->title }}
                             </td>
                             <td>
-                                {{ $post->slug }}
+                                {{ $type->slug }}
                             </td>
                             <td>
-                                {{ $post->content }}
+                                {{ $type->content }}
                             </td>
                             <td class="button-column">
-                                <a href="{{ route('admin.posts.show', ['post' => $post->id]) }}" class="btn btn-primary">
+                                <a href="{{ route('admin.types.show', ['type' => $type->id]) }}" class="btn btn-primary">
                                     Vedi
                                 </a>
-                                <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-warning">
+                                <a href="{{ route('admin.types.edit', ['type' => $type->id]) }}" class="btn btn-warning">
                                     Modifica
                                 </a>
-                                <form action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="post" onsubmit="return confirm('sei sicuro di voler eliminare questo progetto?')">
+                                <form action="{{ route('admin.types.destroy', ['type' => $type->id]) }}" method="post" onsubmit="return confirm('sei sicuro di voler eliminare questo type?')">
                                     @csrf
                                     @method('DELETE')
 

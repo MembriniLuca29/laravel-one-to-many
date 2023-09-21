@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'aggiungi post')
+@section('page-title', $type->title)
 
 @section('main-content')
     <div class="row">
@@ -15,25 +15,22 @@
                 </div>
             @endif
 
-            <form action="{{ route('admin.posts.store') }}" method="post">
+            <form action="{{ route('admin.types.update', ['type' => $type->id]) }}" method="post">
                 @csrf
+                @method('PUT')
 
                 <div class="mb-4">
-                    <label for="" >Titolo</label>
-                    <input type="text" name="title" required maxlength="255" value='{{ old('title') }}'>
+                    <label for="title">Titolo</label>
+                    <input type="text" name="title" required maxlength="255" value="{{ old('title', $type->title) }}">
                 </div>
-
-                <div>
-                    <label for="">Contenuto</label>
-                    <textarea name="content" rows="3" required value='{{ old('content') }}'></textarea>
-                </div>
-
+                
                 <div class="justify-content-center">
                     <button type="submit" class="btn btn-success mt-4">
-                        + Aggiungi
+                        Aggiorna
                     </button>
                 </div>
             </form>
         </div>
     </div>
 @endsection
+
