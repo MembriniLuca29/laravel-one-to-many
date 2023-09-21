@@ -4,6 +4,8 @@ namespace App\Http\Requests\Type;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+use Illuminate\Support\Facades\Auth;
 class UpdateTypeRequest extends FormRequest
 {
     /**

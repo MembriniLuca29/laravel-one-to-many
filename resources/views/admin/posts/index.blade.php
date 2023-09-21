@@ -30,6 +30,13 @@
                             <td>
                                 {{ $post->slug }}
                             </td>
+                            <td>
+                                @if ($post->type)
+                                {{ $post->type->title }}
+                            @else
+                                -
+                            @endif
+                            </td>
                             <td class="button-column ">
                                 <a href="{{ route('admin.posts.show', ['post' => $post->id]) }}" class="btn btn-primary">
                                     Vedi

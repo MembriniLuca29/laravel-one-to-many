@@ -5,8 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
 // Models
 use App\Models\Post;
+use App\Models\Type;
 
 class PostSeeder extends Seeder
 {
@@ -21,11 +23,13 @@ class PostSeeder extends Seeder
             $title = substr(fake()->word(), 0, 255);
             $slug = str()->slug($title);
             $content = fake()->paragraph();
+            $randomType = Type::inRandomOrder()->first();
 
             Post::create([
                 'title' => $title,
                 'slug' => $slug,
                 'content' => $content,
+                'type_id'=> $randomType->id
             ]);
         }
     }

@@ -24,7 +24,7 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
-        return view('admin.types.index', compact('types'));
+        return view('admin.type.index', compact('types'));
     }
 
     /**
@@ -32,7 +32,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return view('admin.types.create');
+        return view('admin.type.create');
     }
 
     /**
@@ -48,15 +48,15 @@ class TypeController extends Controller
             'slug' => str()->slug($formData['title']),
         ]);
 
-        return view('admin.types.show', compact('types'));
+        return view('admin.type.show', compact('type'));
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Type $type)
-    {
-        return view('admin.types.index', compact('types'));
+    {   
+        return view('admin.type.show', compact('type'));
     }
 
     /**
@@ -64,7 +64,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.type.edit', compact('type'));
     }
 
     /**
@@ -72,7 +72,14 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $formData = $request->validated();
+
+        $type->update([
+            'title' => $formData['title'],
+            'slug' => str()->slug($formData['title']),
+        ]);
+
+        return redirect()->route('admin.type.show', compact('type'));
     }
 
     /**
@@ -80,6 +87,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return view('admin.type.index', compact('type'));
     }
 }
