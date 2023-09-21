@@ -23,11 +23,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li>
+                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.posts.index') }}">Post</a>
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">project</a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">

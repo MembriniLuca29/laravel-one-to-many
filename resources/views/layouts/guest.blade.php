@@ -25,10 +25,7 @@
                                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">portfolio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.posts.index') }}">post</a>
+                                    <a class="nav-link" href="{{ route('admin.posts.index') }}">project</a>
                                 </li>
                             @else
                                 <li class="nav-item">

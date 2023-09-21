@@ -5,21 +5,17 @@
 @section('main-content')
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.posts.create') }}" class="btn w-100 btn-success mb-5">
-                + Aggiungi
-            </a>
-
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Titolo</th>
                         <th scope="col">Slug</th>
+                        <th scope="col">contenuto</th>
                         <th scope="col">Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
                         <tr>
                             <th scope="row">
                                 {{ $post->id }}
@@ -30,24 +26,21 @@
                             <td>
                                 {{ $post->slug }}
                             </td>
-                            <td class="button-column ">
+                            <td>
+                                {{ $post->content }}
+                            </td>
+                            <td class="button-column">
                                 <a href="{{ route('admin.posts.show', ['post' => $post->id]) }}" class="btn btn-primary">
                                     Vedi
                                 </a>
                                 <a href="{{ route('admin.posts.edit', ['post' => $post->id]) }}" class="btn btn-warning">
                                     Modifica
                                 </a>
-                                <form action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="post" class="">
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <button class="btn btn-danger" type="submit">
-                                        Elimina
-                                    </button>
-                                </form>
+                                <button class="btn btn-danger">
+                                    Elimina
+                                </button>
                             </td>
                         </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>

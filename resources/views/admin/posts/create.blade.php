@@ -20,12 +20,12 @@
 
                 <div class="mb-4">
                     <label for="" >Titolo</label>
-                    <input type="text" name="title" required maxlength="255">
+                    <input type="text" name="title" required maxlength="255" value='{{ old('title') }}'>
                 </div>
 
                 <div>
                     <label for="">Contenuto</label>
-                    <textarea name="content" rows="3" required></textarea>
+                    <textarea name="content" rows="3" required value='{{ old('content') }}'></textarea>
                 </div>
 
                 <div class="justify-content-center">

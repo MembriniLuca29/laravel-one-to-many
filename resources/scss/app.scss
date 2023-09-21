@@ -21,3 +21,19 @@ form{
         }
     }
 }
+
+.remember-me{
+    width: 250px;
+    display: flex;
+    input{
+        width: 20px;
+        margin-right: 20px;
+    }
+}
+
+.button-column{
+    width: 300px;
+    form{
+        display: inline-block;
+    }
+}

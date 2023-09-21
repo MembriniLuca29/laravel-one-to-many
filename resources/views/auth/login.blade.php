@@ -21,21 +21,21 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me">
+        <div class=" mt-4">
+            <label for="remember_me" class="remember-me">
                 <input id="remember_me" type="checkbox" name="remember">
-                <span>Remember me</span>
+                <span >Remember me</span>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
+                <a href="{{ route('password.request') }}" class="me-4">
                     {{ __('Forgot your password?') }}
-                </a>
+                 </a>
             @endif
 
-            <button type="submit">
+            <button type="submit" class="btn btn-success">
                 Log in
             </button>
         </div>
