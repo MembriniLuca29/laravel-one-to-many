@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('type_id')->nullable();
 
             $table->foreign('type_id')
                 ->references('id')
-                ->on('types');
+                ->on('types')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
         });
     }
 
@@ -26,7 +28,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            
+            $table->dropForeign(['type_id']);
+
+            $table->dropColumn('type_id');
         });
     }
 };
