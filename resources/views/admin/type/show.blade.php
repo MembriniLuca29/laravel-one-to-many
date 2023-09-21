@@ -50,4 +50,21 @@
             </table>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col bg-light">
+            <h2>
+                project collegati
+            </h2>
+            <ul class="post-type">
+                @foreach ($type->posts as $post)
+                    <li class="my-2">
+                        <a href="{{ route('admin.posts.show', ['post' => $post->id]) }}">
+                            {{ $post->title }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 @endsection
