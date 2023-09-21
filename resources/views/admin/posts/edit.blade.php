@@ -28,6 +28,15 @@
                     <label for="content">Contenuto</label>
                     <textarea name="content" rows="3" required>{{ old('content', $post->content) }}</textarea>
                 </div>
+                {{-- <div class="mt-4">
+                    <label for="type_id" class="form-label">type</label>
+                    <select name="type_id" id="type_id" class="form-select">
+                        <option value="{{old('type_id',$type->id }}" selected>{{ old('title',$type->title }}</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->title }}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
 
                 <div class="justify-content-center">
                     <button type="submit" class="btn btn-success mt-4">

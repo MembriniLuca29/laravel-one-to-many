@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 // Models
 use App\Models\Post;
+use App\Models\Type;
 
 // Requests
 use App\Http\Requests\Post\StorePostRequest;
@@ -29,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $types = Type::all();
+        return view('admin.posts.create', compact('types'));
     }
 
     /**
@@ -43,6 +45,7 @@ class PostController extends Controller
             'title' => $formData['title'],
             'slug' => str()->slug($formData['title']),
             'content' => $formData['content'],
+            'type_id' => $formData['type_id'],
         ]);
 
         return redirect()->route('admin.posts.index');
@@ -61,6 +64,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        
         return view('admin.posts.edit', compact('post'));
     }
 
