@@ -32,9 +32,15 @@
                     <label for="type_id" class="form-label">type</label>
                     <select name="type_id" id="type_id" class="form-select">
                         <option selected>Seleziona un type......</option>
+
                         @foreach ($types as $type)
-                            <option value="{{ $type->id }}">{{ $type->title }}</option>
+                            <option value="{{ $type->id }}"
+                                @if (old('type_id') == $type->id)
+                                selected
+                            @endif>
+                                {{ $type->title }}</option>
                         @endforeach
+
                     </select>
                 </div>
 
